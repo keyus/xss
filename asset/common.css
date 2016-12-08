@@ -1,0 +1,83 @@
+*{margin: 0;padding: 0;}
+*,:after,:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;text-size-adjust:100%}
+table{border-collapse:collapse;border-spacing:0}
+input{font-family: "Microsoft YaHei"}
+input[type=submit]{cursor: pointer;border: none;}
+a{color: #333;text-decoration: none}
+a:hover{text-decoration: underline}
+ul,li,ol{list-style: none}
+em{font-style: normal}
+.block{display: block!important;}
+
+body{background: #fff;font-family: "Microsoft YaHei";}
+
+#signform{padding: 10px}
+#signform input{width: 300px;height: 42px;background: #fff;border: 1px solid #e1e6f0;border-radius: 3px;padding: 0 10px}
+#signform input[type=submit]{background: #1989fa;color: #fff;border: 1px solid #1989fa}
+
+header{height: 56px;background: #fff;position: relative;border-bottom: 1px solid #dcdfe5}
+header h1{position: absolute;left: 20px;top: 0;color: #1989fa;line-height: 51px;font-size: 22px}
+header form{position: absolute;right: 20px;top: 0;width: 80%;text-align: right;padding-top: 10px}
+header input[type=text]{width: 20%;height: 30px;padding: 5px 10px;border: 1px solid #dcdfe5;color: #666;border-radius: 3px}
+header input[type=submit]{height: 30px;width: 80px;background: #fff;font-size: 16px;font-size: 13px;color: #7a8599}
+header form a{font-size: 13px;color: #7a8599;height: 30px;width: 80px;display: inline-block;text-align: center;vertical-align: top;line-height: 30px}
+
+.main-data{margin-top: 20px;font-size: 13px;padding: 0 20px;}
+.main-data li{border: 1px solid #dcdfe5;background: #fff;padding: 15px;position: relative;margin: 18px 0;padding-left: 220px;clear: both}
+.main-data li span.number{position: absolute;cursor:pointer;color: #8d9199;font-size: 13px;left: 0;top:0;min-width: 200px;bottom: 0;background: #f5f7fa;text-align: center;padding-top: 25px;display: block}
+.main-data li a{color: #8d9199;float: left;margin-right: 20px;display: block;width: 60px}
+.main-data li a.cookie{color: #1989fa}
+.main-data li a.delete{color: #1989fa;position: absolute;right: 20px;bottom: 20px;background: #f5f7fa;text-align: center;margin-right: 0;width:100px;padding: 5px 15px;display: inline-block;border-radius: 15px}
+.main-data li a:hover{text-decoration: underline;}
+.main-data li a.delete:hover{background: #ff9900;color: #fff;text-decoration: none}
+.main-data li span.number a{width: auto;margin:0 auto;float: none;width: 10px;height: 10px;background: #ff4e00;border-radius: 50%}
+.main-data li p{float: left;flex: 1;color: #5e6166;}
+.main-data li small{color: #999;}
+.main-data li div{line-height: 26px;display: flex}
+.main-data li div:after{content: '';clear: both;display: block}
+
+.page{padding: 30px 20px;font-size: 13px;font-family: Arial}
+.page li{float: left;}
+.page li a,
+.page li span{display: inline-block;padding: 4px 10px;background: #fff;color: #5e6166;margin: 0 3px;border: 1px solid #e6e9f0}
+.page li.active span {background: #f6faff;color: #1989fa;border: 1px solid #9ecdfd}
+.page li a.return {background: #f6faff;color: #1989fa;border: 1px solid #9ecdfd}
+.page li.disabled span {background: #fff;color: #5e6166;border: 1px solid #e6e9f0;opacity: .5}
+
+
+.loading{display: none}
+.loading .maskbg{background: rgba(0,0,0,.5);position: fixed;left: 0;top: 0;right:0;bottom: 0}
+
+
+@keyframes rotate {
+    0% {
+        -webkit-transform: rotate(0deg) scale(1);
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        -webkit-transform: rotate(180deg) scale(0.6);
+        transform: rotate(180deg) scale(0.6);
+    }
+    100% {
+        -webkit-transform: rotate(360deg) scale(1);
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+
+.ball-clip-rotate{position: fixed;left: 0;right: 0;top: 50%;margin-top: -50px}
+.ball-clip-rotate > div {
+    background-color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin: 0 auto;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    border: 4px solid #fff;
+    border-bottom-color: transparent;
+    background: transparent !important;
+    -webkit-animation: rotate 0.75s 0s linear infinite;
+    animation: rotate 0.75s 0s linear infinite;
+
+}
