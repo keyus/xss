@@ -1,7 +1,7 @@
 # xss
 php写的个人研究测试用的  xss cookie 攻击管理平台,开源出来
 
-![image](https://github.com/keyus/xss/xss_demo.png)
+![image](https://raw.githubusercontent.com/keyus/xss/master/xss_demo.png)
 
 <h1>仅用于学习交流，禁止用于非法行为，后果自付
 </h1>
