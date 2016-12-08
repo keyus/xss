@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * @param $time
+ * @return false|string
+ * 分页类，与时间格式化函数
+ */
 function format($time) {
     $rtime=date("m-d H:i",$time);
     $htime=date("H:i",$time);

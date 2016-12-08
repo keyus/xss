@@ -1,4 +1,7 @@
 <?php
+/**
+ * 认证页面
+ */
 require '../config.php';
 
 $us=$_POST['us'];

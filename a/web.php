@@ -1,4 +1,7 @@
 <?php
+/**
+ * 后台管理主页
+ */
 require '../config.php';
 require 'page.php';
 $mysqli= mysql_con();
@@ -7,10 +10,11 @@ session_start();
 if($_GET['layout']=='yes'){
     session_unset();
     session_destroy();
-    header("Location:l.php");
+    header("Location:login.php");
+    exit;
 }
 if($_SESSION['user']!='admin' || $_SESSION['password'] !='tu!@#') {
-    header("Location:l.php");
+    header("Location:login.php");
     exit;
 }
 
@@ -48,9 +52,9 @@ if(!empty($_GET['site'])){
     <h1><img src="" alt="">Cookie Manage</h1>
     <form action="web.php">
         <input type="text" placeholder="input a site name" name="site">
-        <input type="submit" value="search">
-        <a href="javascript:;" class="refresh">refresh <em id="refresh">180</em>s</a>
-        <a href="web.php?layout=yes">logout</a>
+        <input type="submit" value="搜索">
+        <a href="javascript:;" class="refresh">刷新 <em id="refresh">180</em>s</a>
+        <a href="web.php?layout=yes">退出</a>
     </form>
 </header>
 
