@@ -3,7 +3,7 @@
  * 后台管理主页
  */
 require '../config.php';
-require 'page.php';
+require 'function.php';
 $mysqli= mysql_con();
 
 session_start();
@@ -13,7 +13,7 @@ if($_GET['layout']=='yes'){
     header("Location:login.php");
     exit;
 }
-if($_SESSION['user']!='admin' || $_SESSION['password'] !='tu!@#') {
+if($_SESSION['user']!=USER || $_SESSION['password'] !=PASSWORD) {
     header("Location:login.php");
     exit;
 }
@@ -22,17 +22,17 @@ $search_key=null;
 //search
 if(!empty($_GET['site'])){
     $site=$_GET['site'];
-    $result=$mysqli->query("select * from tu_message where href LIKE '%{$site}%' ");
+    $result=$mysqli->query("select * from ".COOKIE." where href LIKE '%{$site}%' ");
     $page=new Page($result->num_rows,10);
 
-    $sql='select * from tu_message where href LIKE '."'%{$site}%'".$page->limit;
+    $sql='select * from '.COOKIE.' where href LIKE '."'%{$site}%'".$page->limit;
     $list=$mysqli->query($sql);
     $search_key=$site;
 }else{
-    $result=$mysqli->query("select * from tu_message");
+    $result=$mysqli->query("select * from ".COOKIE);
     $page=new Page($result->num_rows,10);
 
-    $sql='select * from tu_message order by id desc '.$page->limit;
+    $sql='select * from '.COOKIE.' order by id desc '.$page->limit;
     $list=$mysqli->query($sql);
 }
 
@@ -44,7 +44,9 @@ if(!empty($_GET['site'])){
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>tutu</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <title>Cookie管理平台</title>
     <link rel="stylesheet" href="/asset/common.css">
 </head>
 <body>
@@ -130,7 +132,8 @@ if(!empty($_GET['site'])){
     },1000);
 
     var read=document.querySelectorAll('.number');
-    read.forEach(function(e){
+
+    [].forEach.call(read,function (e) {
         e.addEventListener('click',function(event){
             var target=event.target,
                 id=target.dataset.id;
@@ -154,7 +157,7 @@ if(!empty($_GET['site'])){
 
     //listen delete
     var del=document.querySelectorAll('.delete');
-    del.forEach(function(e){
+    [].forEach.call(del,function(e){
         e.addEventListener('click',function (event) {
             var target=event.target,
                 id=target.dataset.id;
@@ -183,14 +186,15 @@ if(!empty($_GET['site'])){
 
     //cookie to json string
     var coke=document.querySelectorAll('a.cookie');
-    coke.forEach(function(e){
+
+
+    [].forEach.call(coke,function(e){
         e.addEventListener('click',function (event) {
             var cookie=event.target.dataset.cookie,
                 hostname=event.target.dataset.hostname,
                 cookieJson=[];
 
             cookie=cookie.split(';');
-            console.log(cookie)
             cookie.forEach(function(e,i) {
                 var ar = e.split('=');
                 if(ar.length>2){

@@ -8,8 +8,8 @@ $us=$_POST['us'];
 $pd=$_POST['pd'];
 if($us==USER && $pd ==PASSWORD){
     session_start();
-    $_SESSION['user']='admin';
-    $_SESSION['password']='tu!@#';
+    $_SESSION['user']=USER;
+    $_SESSION['password']=PASSWORD;
     echo json_encode(['success' => true]);
 }else{
     echo json_encode(['fail' => true]);

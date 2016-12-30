@@ -8,6 +8,11 @@ define('USER',"admin");
 define('PASSWORD',"123456");
 
 /**
+ * 配置储存cookie的表名
+ */
+define('COOKIE',"cookie");
+
+/**
  * @return mysqli connect
  * mysql 连接配置
  */
